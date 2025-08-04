@@ -17,7 +17,7 @@ public class SalaryInfo {
             for (String start : data) {
                 String[] parts = start.split(" ");
                 LocalDate date = LocalDate.parse(parts[0], formatter);
-                if (date.isAfter(firstDate) && date.isBefore(lastDate) && name.equals(parts[1])) {
+                if (!date.isBefore(firstDate) && !date.isAfter(lastDate) && name.equals(parts[1])) {
                     int hours = Integer.parseInt(parts[2]);
                     int perHours = Integer.parseInt(parts[3]);
                     fullSalary += hours * perHours;
