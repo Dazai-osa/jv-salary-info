@@ -12,8 +12,8 @@ public class SalaryInfo {
         Map<String, Integer> salaryMap = new HashMap<>();
         for (String name : names) {
             int fullSalary = 0;
-            LocalDate firstDate = LocalDate.parse(dateFrom, formatter).minusDays(1);
-            LocalDate lastDate = LocalDate.parse(dateTo, formatter).plusDays(1);
+            LocalDate firstDate = LocalDate.parse(dateFrom, formatter);
+            LocalDate lastDate = LocalDate.parse(dateTo, formatter);
             for (String start : data) {
                 String[] parts = start.split(" ");
                 LocalDate date = LocalDate.parse(parts[0], formatter);
