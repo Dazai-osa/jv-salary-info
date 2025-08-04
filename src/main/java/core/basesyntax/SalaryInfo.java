@@ -25,7 +25,8 @@ public class SalaryInfo {
                     fullSalary += hours * salaryPerHour;
                 }
             }
-            salaryReport.append(name).append(" - ").append(fullSalary);
+            salaryReport.append(name).append(" - ").append(fullSalary)
+                    .append(System.lineSeparator());
         }
         return salaryReport.toString();
     }
