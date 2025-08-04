@@ -15,8 +15,8 @@ public class SalaryInfo {
         LocalDate lastDate = LocalDate.parse(dateTo, formatter);
         for (String name : names) {
             int fullSalary = 0;
-            for (String start : data) {
-                String[] parts = start.split(" ");
+            for (String entry : data) {
+                String[] parts = entry.split(" ");
                 LocalDate date = LocalDate.parse(parts[0], formatter);
                 if (!date.isBefore(firstDate) && !date.isAfter(lastDate)
                         && name.equals(parts[1])) {
