@@ -6,10 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SalaryInfo {
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public String getSalaryInfo(String[] names, String[] data, String dateFrom, String dateTo) {
-        Map<String, Integer> salaryMap = new HashMap<>();
+        StringBuilder salarylist = new StringBuilder("Report for period "
+                + dateFrom + " - " + dateTo + System.lineSeparator());
         for (String name : names) {
             int fullSalary = 0;
             LocalDate firstDate = LocalDate.parse(dateFrom, formatter);
@@ -23,8 +24,8 @@ public class SalaryInfo {
                     fullSalary += hours * perHours;
                 }
             }
-            salaryMap.put(name, fullSalary);
+            salarylist.append(name).append(" - ").append(fullSalary).append(System.lineSeparator());
         }
-        return salaryMap.toString();
+        return salarylist.toString();
     }
 }
