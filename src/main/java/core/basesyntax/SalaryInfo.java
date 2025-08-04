@@ -7,7 +7,7 @@ public class SalaryInfo {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public String getSalaryInfo(String[] names, String[] data, String dateFrom, String dateTo) {
-        StringBuilder salaryList = new StringBuilder("Report for period "
+        StringBuilder salaryReport = new StringBuilder("Report for period "
                 + dateFrom + " - " + dateTo + System.lineSeparator());
         LocalDate firstDate = LocalDate.parse(dateFrom, formatter);
         LocalDate lastDate = LocalDate.parse(dateTo, formatter);
@@ -22,8 +22,8 @@ public class SalaryInfo {
                     fullSalary += hours * perHours;
                 }
             }
-            salaryList.append(name).append(" - ").append(fullSalary);
+            salaryReport.append(name).append(" - ").append(fullSalary).append(System.lineSeparator());
         }
-        return salaryList.toString();
+        return salaryReport.toString();
     }
 }
