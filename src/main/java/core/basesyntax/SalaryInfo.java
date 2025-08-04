@@ -28,6 +28,7 @@ public class SalaryInfo {
             salaryReport.append(name).append(" - ").append(fullSalary)
                     .append(System.lineSeparator());
         }
+        salaryReport.deleteCharAt(salaryReport.length() - 1);
         return salaryReport.toString();
     }
 }
